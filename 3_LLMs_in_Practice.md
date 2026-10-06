@@ -64,6 +64,17 @@ Use AI to familiarize yourself with the provided codebase. Understand how the di
 This controller should turn the heater on when the temperature is below the setpoint minus half the deadband, and turn it off when the temperature is above the setpoint plus half the deadband.
 
 > Example prompt: "How does the onoff controller work and how can I implement it in Python?"
+def update(self, temperature):
+  lower = self.setpoint - self.deadband / 2
+  upper = self.setpoint + self.deadband / 2
+
+  if temperature < lower:
+    self.heater_on = True
+  elif temperature > upper:
+    self.heater_on = False
+
+  return self.heater_on
+
 
 ## Task 3.additional Implement all auxiliary functions in the other modules. 
 
